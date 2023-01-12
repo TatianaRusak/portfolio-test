@@ -13,8 +13,10 @@
 }
 
 :root {
+  --color-dark: rgba(0, 0, 0, 0.74);
   --color-primary: #2D3E4F;
   --color-accent: #CF404D;
+  --color-middle: #FAFAFA;;
   --color-light: #ffffff;
   --font-header: 'Oswald';
   --font-text: 'Droid Sans';
@@ -40,7 +42,7 @@ main {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -52,6 +54,13 @@ h2 {
   letter-spacing: 1px;
   color: var(--color-accent);
   text-transform: uppercase;
+}
+
+.text {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-dark);
 }
 
 .menu__list {
@@ -97,6 +106,7 @@ h2 {
   letter-spacing: 1px;
   color: var(--color-accent);
   text-transform: uppercase;
+  text-align: left;
 }
 
 .home__text_role {
@@ -117,6 +127,30 @@ h2 {
 
 .home__img {
   width: 400px;
+}
+
+.about {
+  background-color: var(--color-middle);
+  padding: 64px 0;
+}
+
+.about__header {
+  font-family: var(--font-header);
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.about__text {
+  margin-top: 70px;
+  padding: 0 100px;
+}
+
+.about__text p {
+  margin-bottom: 20px;
 }
 
 
