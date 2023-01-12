@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Droid Sans";  
+  src: url("./assets/fonts/DroidSans.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal;
+}
+    
+@font-face {
+  font-family: "Oswald";
+  src: url("./assets/fonts/Oswald-Regular.ttf") format("truetype");
+  font-style: normal; 
+  font-weight: normal; 
+}
+
+:root {
+  --color-primary: #2D3E4F;
+  --color-accent: #CF404D;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+aside {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+main {
+ margin-left: 300px;
+}
+.menu {
+}
