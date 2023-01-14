@@ -157,8 +157,10 @@ h2 {
 }
 
 .about__text {
+  margin: 0 auto;  
   margin-top: 70px;
-  padding: 0 100px;
+  width: 60%;
+  text-align: center;
 }
 
 .about__text p {
