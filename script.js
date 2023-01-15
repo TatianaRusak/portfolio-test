@@ -27,7 +27,6 @@ const carousel = document.getElementById('carousel'),
       imageInGallery = document.querySelector('.slider__img'),
       sliderWrapperInner = document.querySelector('.slider__wrapper_inner');
 
-
 window.addEventListener('load', () => {
   for (let i = 0; i <= projects.length; i++) {
     const card = document.createElement("img");
@@ -50,19 +49,20 @@ function getNumberOfCards() {
 carousel.style.left = '0px';
 carousel.style.columnGap = '30px';
 
-
 const arrowRightHandleClick = () => {
+  const offsetValue = document.querySelector('.slider__img').width + parseInt(carousel.style.columnGap);
+  
   if (!arrowRight.classList.contains('disabled')) {
     let curPos = carousel.style.left;
-    console.log(curPos)
-    carousel.style.left = (parseInt(curPos) -  515) + 'px';
+    carousel.style.left = (parseInt(curPos) -  offsetValue) + 'px';
+    console.log('offsetValue', offsetValue);
     
-    let offset = parseInt(carousel.style.left);
+    let currentOffset = parseInt(carousel.style.left);
     const numberOfcardsInSlider = getNumberOfCards();
     let maxOffset = (parseInt(document.querySelector('.slider__img').offsetWidth) + parseInt(carousel.style.columnGap )) * (projects.length - numberOfcardsInSlider);
     console.log('maxOffset', maxOffset);
     
-    if (offset <= -maxOffset) {
+    if (currentOffset <= -maxOffset) {
       arrowRight.classList.add('disabled')
     }
   
@@ -72,10 +72,12 @@ const arrowRightHandleClick = () => {
 }
 
 const arrowLeftHandleClick = () => {
+  const offsetValue = document.querySelector('.slider__img').width + parseInt(carousel.style.columnGap);
+
   if (!arrowLeft.classList.contains('disabled')) {
     let curPos = carousel.style.left;
     console.log(curPos)
-    carousel.style.left = (parseInt(curPos) +  515) + 'px';
+    carousel.style.left = (parseInt(curPos) +  offsetValue) + 'px';
     
     let offset = parseInt(carousel.style.left);
     console.log(curPos)
