@@ -28,7 +28,8 @@ const carousel = document.getElementById('carousel'),
       sliderWrapperInner = document.querySelector('.slider__wrapper_inner'),
       hamburger = document.querySelector('.hamburger'),
       menu = document.querySelector('.menu'),
-      overlay = document.querySelector('.overlay');
+      overlay = document.querySelector('.overlay'),
+      skills = document.querySelectorAll('.skills__img-wrapper');
 
 window.addEventListener('load', () => {
   for (let i = 0; i <= projects.length; i++) {
@@ -38,6 +39,8 @@ window.addEventListener('load', () => {
     carousel.appendChild(card);
   }
 });
+
+// ==================== карусель =========================
 
 function getNumberOfCards() { 
   const width = parseInt(sliderWrapperInner.style.width);
@@ -96,6 +99,8 @@ const arrowLeftHandleClick = () => {
 arrowLeft.addEventListener('click', arrowLeftHandleClick)
 arrowRight.addEventListener('click', arrowRightHandleClick)
 
+// ==================== burger меню =========================
+
 function toggleMenu() {
   hamburger.classList.toggle('open');
   menu.classList.toggle('open');
@@ -105,11 +110,25 @@ function toggleMenu() {
 
 hamburger.addEventListener('click', toggleMenu);
 
-function hidemenu() {
+function hideMenu() {
   menu.classList.remove('open');
   overlay.classList.toggle('open');
   hamburger.classList.toggle('open');
   document.querySelector('body').classList.toggle('not-scroll');
 }
 
-menu.addEventListener('click', hidemenu)
+menu.addEventListener('click', hideMenu)
+
+// ==================== анимация skills при клике =========================
+skills.forEach(skill => {
+  skill.addEventListener("click", function() {
+    skill.classList.add('rotate');
+  });
+
+  skill.addEventListener("animationend", function () {
+    skill.classList.remove('rotate'); 
+  }, false);
+})
+
+
+
