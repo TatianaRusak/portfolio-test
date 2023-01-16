@@ -100,6 +100,7 @@ main {
 .overlay.open {
   background-color: rgba(0, 0, 0, 0.5);
   animation: appear 1000ms both;
+  height: 100%;
 }
 
 .container {
@@ -163,8 +164,7 @@ h4 {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 80%;
+  row-gap: 20px;
 }
 
 @media (max-width: 767px) {
@@ -195,7 +195,7 @@ h4 {
 
 @media (max-width: 767px) {
   .menu__item a {
-    padding: 15px 20px;
+    padding: 5px 20px;
   }
 }
 
@@ -490,28 +490,29 @@ h4 {
   width: 800px;
 }
 
-@media (min-width: 1200px) and (max-width: 1360px) {
+@media (min-width: 1201px) and (max-width: 1360px) {
   .slider__wrapper {
     width: 700px;
   }
 }
 
-@media (min-width: 680px) and (max-width: 1200px) {
+@media (min-width: 681px) and (max-width: 1200px) {
   .slider__wrapper {
     width: 500px;
   }
 }
 
-@media (min-width: 480px) and (max-width: 680px) {
+@media (min-width: 481px) and (max-width: 680px) {
   .slider__wrapper {
     width: 300px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 480px) {
   .slider__wrapper {
     margin-top: 30px;
     margin-bottom: 40px;
+    width: 300px;
   }
 }
 

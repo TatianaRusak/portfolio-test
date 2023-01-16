@@ -127,7 +127,7 @@ skills.forEach(skill => {
 
   skill.addEventListener("animationend", function () {
     skill.classList.remove('rotate'); 
-  }, false);
+  });
 })
 
 
