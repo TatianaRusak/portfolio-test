@@ -25,7 +25,10 @@ const carousel = document.getElementById('carousel'),
       arrowRight = document.getElementById('arrow_right'),
       arrowLeft = document.getElementById('arrow_left'),
       imageInGallery = document.querySelector('.slider__img'),
-      sliderWrapperInner = document.querySelector('.slider__wrapper_inner');
+      sliderWrapperInner = document.querySelector('.slider__wrapper_inner'),
+      hamburger = document.querySelector('.hamburger'),
+      menu = document.querySelector('.menu'),
+      overlay = document.querySelector('.overlay');
 
 window.addEventListener('load', () => {
   for (let i = 0; i <= projects.length; i++) {
@@ -92,3 +95,21 @@ const arrowLeftHandleClick = () => {
 
 arrowLeft.addEventListener('click', arrowLeftHandleClick)
 arrowRight.addEventListener('click', arrowRightHandleClick)
+
+function toggleMenu() {
+  hamburger.classList.toggle('open');
+  menu.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.querySelector('body').classList.toggle('not-scroll');
+}
+
+hamburger.addEventListener('click', toggleMenu);
+
+function hidemenu() {
+  menu.classList.remove('open');
+  overlay.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  document.querySelector('body').classList.toggle('not-scroll');
+}
+
+menu.addEventListener('click', hidemenu)
