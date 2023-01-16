@@ -1,9 +1,9 @@
 
-## Test task "Portfolio"
+# Test task "Portfolio"
 
-# Deploy: https://tatianarusak.github.io/portfolio-test
+## Deploy: https://tatianarusak.github.io/portfolio-test
 
-# Description:
+## Description:
 
   - flexbox
   - animations
