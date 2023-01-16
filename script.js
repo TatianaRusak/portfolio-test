@@ -1,4 +1,4 @@
-const projects = [
+const photos = [
   {
     "id": 1,
     "name": "image1",
@@ -32,10 +32,10 @@ const carousel = document.getElementById('carousel'),
       skills = document.querySelectorAll('.skills__img-wrapper');
 
 window.addEventListener('load', () => {
-  for (let i = 0; i <= projects.length; i++) {
+  for (let i = 0; i <= photos.length; i++) {
     const card = document.createElement("img");
     card.classList.add("slider__img");
-    card.setAttribute('src', `./assets/images/gallery/${projects[i].name}.webp`);
+    card.setAttribute('src', `./assets/images/gallery/${photos[i].name}.webp`);
     carousel.appendChild(card);
   }
 });
@@ -65,7 +65,7 @@ const arrowRightHandleClick = () => {
     
     let currentOffset = parseInt(carousel.style.left);
     const numberOfcardsInSlider = getNumberOfCards();
-    let maxOffset = (parseInt(document.querySelector('.slider__img').offsetWidth) + parseInt(carousel.style.columnGap )) * (projects.length - numberOfcardsInSlider);
+    let maxOffset = (parseInt(document.querySelector('.slider__img').offsetWidth) + parseInt(carousel.style.columnGap )) * (photos.length - numberOfcardsInSlider);
     console.log('maxOffset', maxOffset);
     
     if (currentOffset <= -maxOffset) {

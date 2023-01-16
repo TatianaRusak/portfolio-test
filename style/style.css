@@ -15,7 +15,7 @@
 :root {
   --color-dark: rgba(0, 0, 0, 0.74);
   --color-primary: #2D3E4F;
-  --color-accent: #CF404D;
+  --color-accent: #cf404d;
   --color-middle: #FAFAFA;;
   --color-light: #ffffff;
   --font-header: 'Oswald';
@@ -135,7 +135,8 @@ h4 {
   position: fixed;
   width: 20%;
   min-width: 200px;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background-color: var(--color-primary);
   padding-top: 60px;
   transition: all 0.8s;
@@ -160,6 +161,10 @@ h4 {
 .menu__list {
   list-style-type: none;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80%;
 }
 
 @media (max-width: 767px) {
@@ -183,7 +188,7 @@ h4 {
   text-align: center;
   text-transform: uppercase;
   color: var(--color-light);
-  padding: 20px;
+  /* padding: 20px; */
   text-decoration: none;
   letter-spacing: 1px;
 }
@@ -486,19 +491,19 @@ h4 {
   width: 800px;
 }
 
-@media (max-width: 1360px) {
+@media (min-width: 1200px) and (max-width: 1360px) {
   .slider__wrapper {
     width: 700px;
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 680px) and (max-width: 1200px) {
   .slider__wrapper {
     width: 500px;
   }
 }
 
-@media (max-width: 680px) {
+@media (min-width: 480px) and (max-width: 680px) {
   .slider__wrapper {
     width: 300px;
   }
