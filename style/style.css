@@ -377,7 +377,7 @@ h4 {
 
 .about__sert {
   list-style-type: square;
-
+  list-style-position: inside;
 }
 
 .about__sert li {
