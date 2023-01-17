@@ -1,25 +1,61 @@
-const photos = [
+const projects = [
   {
-    "id": 1,
-    "name": "image1",
+    id: 1,
+    img: "rs-lang",
+    name: "RS Lang (co-project)",
+    deploy: "https://rslang-kramans1990-team-112.netlify.app/",
   },
   {
-    "id": 2,
-    "name": "image2",
+    id: 2,
+    img: "project-management-sys",
+    name: "Project Management app (co-project)",
+    deploy: "http://project-management-app-arumakin.netlify.app",
   },
   {
-    "id": 3,
-    "name": "image3",
+    id: 3,
+    img: "note-app",
+    name: "Note app",
+    deploy: "https://app-making-notes.netlify.app/",
   },
   {
-    "id": 4,
-    "name": "image4",
+    id: 4,
+    img: "memo",
+    name: "Memo Game",
+    deploy: "https://tatianarusak.github.io/memory-game/",
   },
   {
-    "id": 5,
-    "name": "image5",
+    id: 5,
+    img: "online-store",
+    name: "Online Store",
+    deploy: "https://tatianarusak.github.io/online-store/",
+  },
+  {
+    id: 6,
+    img: "player",
+    name: "Audio player",
+    deploy: "https://tatianarusak.github.io/rsschool_stage0_player/",
+  },
+  {
+    id: 7,
+    img: "portfolio",
+    name: "Portfolio",
+    deploy: "https://tatianarusak.github.io/rsschool_stage0_portfolio/",
+  },
+  {
+    id: 8,
+    img: "shelter",
+    name: "Shelter",
+    deploy: "https://tatianarusak.github.io/shelter/",
+  },
+  {
+    id: 9,
+    img: "piroll",
+    name: "Piroll",
+    deploy: "https://tatianarusak.github.io/piroll/",
   },
 ]
+
+// ==================== константы =========================
 
 const carousel = document.getElementById('carousel'),
       arrowRight = document.getElementById('arrow_right'),
@@ -29,13 +65,28 @@ const carousel = document.getElementById('carousel'),
       hamburger = document.querySelector('.hamburger'),
       menu = document.querySelector('.menu'),
       overlay = document.querySelector('.overlay'),
-      skills = document.querySelectorAll('.skills__img-wrapper');
+      skills = document.querySelectorAll('.skills__img-wrapper'),
+      menuItems = document.querySelectorAll('.menu__item');
+
+// ==================== данамическая загрузка проектов в слайдер =========================
 
 window.addEventListener('load', () => {
-  for (let i = 0; i <= photos.length; i++) {
-    const card = document.createElement("img");
-    card.classList.add("slider__img");
-    card.setAttribute('src', `./assets/images/gallery/${photos[i].name}.webp`);
+  for (let i = 0; i <= projects.length; i++) {
+    const card = document.createElement("div");
+    const link = document.createElement("a");
+    link.setAttribute('href', projects[i].deploy);
+    link.setAttribute('target', '_blank');
+
+    const pic = document.createElement("img");
+    const picName = document.createElement("p");
+    pic.classList.add("slider__img");
+    picName.innerText = projects[i].name;
+    picName.classList.add("slider__name");
+    pic.setAttribute('src', `./assets/images/gallery/${projects[i].img}.jpg`);
+    
+    link.appendChild(pic);
+    card.appendChild(link);
+    card.appendChild(picName);
     carousel.appendChild(card);
   }
 });
@@ -61,12 +112,10 @@ const arrowRightHandleClick = () => {
   if (!arrowRight.classList.contains('disabled')) {
     let curPos = carousel.style.left;
     carousel.style.left = (parseInt(curPos) -  offsetValue) + 'px';
-    console.log('offsetValue', offsetValue);
     
     let currentOffset = parseInt(carousel.style.left);
     const numberOfcardsInSlider = getNumberOfCards();
-    let maxOffset = (parseInt(document.querySelector('.slider__img').offsetWidth) + parseInt(carousel.style.columnGap )) * (photos.length - numberOfcardsInSlider);
-    console.log('maxOffset', maxOffset);
+    let maxOffset = (parseInt(document.querySelector('.slider__img').offsetWidth) + parseInt(carousel.style.columnGap )) * (projects.length - numberOfcardsInSlider);
     
     if (currentOffset <= -maxOffset) {
       arrowRight.classList.add('disabled')
@@ -82,11 +131,9 @@ const arrowLeftHandleClick = () => {
 
   if (!arrowLeft.classList.contains('disabled')) {
     let curPos = carousel.style.left;
-    console.log(curPos)
     carousel.style.left = (parseInt(curPos) +  offsetValue) + 'px';
     
     let offset = parseInt(carousel.style.left);
-    console.log(curPos)
     
     if (offset === 0) {
       arrowLeft.classList.add('disabled')
@@ -130,5 +177,17 @@ skills.forEach(skill => {
   });
 })
 
+// ==================== активный пункт меню  =========================
 
 
+function activeItem() {
+  menuItems.forEach(item => {
+    item.classList.remove('active');
+  })
+
+  this.classList.add("active");
+}
+
+menuItems.forEach(item => {
+  item.addEventListener('click', activeItem)
+})

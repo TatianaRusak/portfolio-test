@@ -6,11 +6,10 @@
 ### Description:
 
   - flexbox
-  - animations
-  - media queries
+  - animations (in Skills section)
   - BEM
   - CSS-variables
   - burger-menu
-  - mobile
-  - slider
+  - slider (gallery of my training projects)
+  - media queries (up to 320px)
 
